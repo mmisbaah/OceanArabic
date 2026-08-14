@@ -1,0 +1,18 @@
+{
+  "name": "OceanArabic — Arabic Adventures with Nooru",
+  "short_name": "OceanArabic",
+  "description": "Playful Arabic learning for Maldivian primary students.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5fbf8",
+  "theme_color": "#168f99",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "kids", "games"],
+  "icons": [
+    { "src": "/assets/nooru.png", "sizes": "1280x1280", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/nooru.png", "sizes": "1280x1280", "type": "image/png", "purpose": "maskable" }
+  ]
+}
