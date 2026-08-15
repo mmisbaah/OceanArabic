@@ -27,7 +27,7 @@ body{overflow-x:hidden}
 button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
 .dock{bottom:max(8px,env(safe-area-inset-bottom))}
-@media(max-width:780px){.profile>button{min-width:48px;min-height:48px}}
+@media(max-width:780px){.topbar{justify-content:flex-start}.topbar .logo{margin-right:2px}.profile>button{min-width:48px;min-height:48px}}
 @media(max-width:520px){.topbar{height:auto;min-height:82px;padding:8px;gap:3px}.logo,.profile{gap:3px;min-width:0}.deck-mascot{width:42px;height:42px}.profile .avatar{width:40px;height:40px}.status-stack{min-width:38px;font-size:10px;gap:1px}.profile>span,.profile>div:not(.avatar) b{font-size:11px}.profile>div:not(.avatar) small,.profile>button small{font-size:9px}.profile>button{padding:2px}.dock{width:calc(100% - 12px);padding:6px}.dock button{min-width:48px}}
 @media(max-width:390px){.profile>span{font-size:10px}.profile>div:not(.avatar){max-width:62px}.profile>button{font-size:21px}.dock small{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
