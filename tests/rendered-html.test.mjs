@@ -139,3 +139,13 @@ test("lesson, Practice, and Play transitions reset to the page top after renderi
   assert.match(source, /const playChoice=.*scrollPageTop\(\)/, "game rounds must reset to top");
   assert.match(source, /const openLesson=.*scrollPageTop\(\)/, "lesson steps must reset to top");
 });
+
+test("upper deck keeps identity left, rewards centered, and account actions right", async () => {
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(page, /className="header-left"/, "missing left identity group");
+  assert.match(page, /className="header-actions"/, "missing right action group");
+  assert.match(css, /grid-template-columns:minmax\(0,1fr\) auto minmax\(0,1fr\)/, "header must use three stable zones");
+  assert.match(css, /\.topbar>\.status-stack\{justify-self:center/, "rewards must be centered");
+  assert.match(css, /\.header-actions\{[^}]*justify-self:end/, "actions must align right");
+});
