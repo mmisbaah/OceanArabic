@@ -122,7 +122,8 @@ test("scoring boundaries match the reward policy", () => {
 test("Arabic dictation uses real audio with distinct normal and slow speeds", async () => {
   const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const audioMap = JSON.parse(await readFile(new URL("../app/audio-map.json", import.meta.url), "utf8"));
-  assert.match(source, /new Audio\(source\)/, "missing real audio player");
+  assert.match(source, /<audio ref=\{audioRef\}/, "audio player must be attached to the page");
+  assert.match(source, /audio\.src=source/, "audio source must be assigned to the attached player");
   assert.match(source, /bundledSource\|\|/, "bundled audio must be preferred");
   assert.match(source, /audio\.playbackRate=slow\?\.7:1/, "normal and slow playback speeds must differ");
   assert.match(source, /fallbackToDeviceVoice/, "missing device-voice fallback");

@@ -68,8 +68,9 @@ export default function Home() {
 
     const bundledSource=audioMap[text as keyof typeof audioMap];
     const source=bundledSource||`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&q=${encodeURIComponent(text)}`;
-    const audio=new Audio(source);
+    const audio=audioRef.current||new Audio();
     audioRef.current=audio;
+    audio.src=source;
     audio.preload="auto";
     audio.playbackRate=slow?.7:1;
     audio.preservesPitch=true;
@@ -124,6 +125,7 @@ export default function Home() {
       <div className="logo"><img className="deck-mascot" src="/assets/nooru.png" onError={imageFallback("/assets/avatars/avatar-01.png")} alt="Nooru mascot"/><div><b>OceanArabic</b><small>Arabic adventures by Atollingo</small></div></div>
       <div className="profile"><div className="avatar"><img src={learner.avatar} onError={imageFallback("/assets/avatars/avatar-01.png")} alt={`${learner.name} avatar`}/></div><div className="learner-label"><b>Hello, {learner.name}</b><small>G{learner.grade} · {learner.difficulty}</small></div><div className="status-stack" aria-label="Learning rewards"><span title="Stars">⭐ {totalStars}</span><span title="Rewards">🏅 {unlocked.length}</span><span title="Learning streak">🔥 {completedActivities?1:0}</span></div><button aria-label="Reset progress" onClick={()=>setResetOpen(true)}>🫧<small>Reset</small></button><button aria-label="Log out" onClick={logout}>🚪<small>Logout</small></button></div>
     </header>
+    <audio ref={audioRef} className="audio-engine" preload="auto" playsInline aria-hidden="true" />
     {(audioNotice||systemNotice)&&<div className="audio-notice" role="status" aria-live="polite">{audioNotice||systemNotice}</div>}
 
     <section className="hero">
