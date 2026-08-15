@@ -118,3 +118,11 @@ test("scoring boundaries match the reward policy", () => {
   assert.equal(stars(0.8), 2);
   assert.equal(stars(0.81), 3);
 });
+
+test("Arabic dictation uses real audio with distinct normal and slow speeds", async () => {
+  const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(source, /new Audio\(source\)/, "missing real audio player");
+  assert.match(source, /translate\.google\.com\/translate_tts/, "missing Arabic audio source");
+  assert.match(source, /audio\.playbackRate=slow\?\.7:1/, "normal and slow playback speeds must differ");
+  assert.match(source, /fallbackToDeviceVoice/, "missing device-voice fallback");
+});

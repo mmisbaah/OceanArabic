@@ -36,7 +36,46 @@ export default function Home() {
   const lessonBank=grade===1?grade1LessonsFor(difficulty):grade===2?grade2LessonsFor(difficulty):grade3LessonsFor(difficulty);
   const lesson=lessonBank.find(x=>x.id===lessonId)||grade1EasyLessons[0], sub=lesson.subLessons[subIndex];
   const [audioNotice,setAudioNotice]=useState("");
-  const speak=(text:string,slow=false)=>{if(typeof window==="undefined"||!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window)){setAudioNotice("🔇 Audio is not available on this device. Read the Arabic card with an adult.");return}const synth=window.speechSynthesis;synth.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang="ar-SA";utterance.rate=slow?.48:.82;utterance.pitch=1.06;utterance.volume=1;const arabicVoices=synth.getVoices().filter(voice=>voice.lang.toLowerCase().startsWith("ar"));const preferred=/salma|hoda|laila|layla|mariam|maryam|zeina|female|zira|sara/i;utterance.voice=arabicVoices.find(voice=>preferred.test(voice.name))||arabicVoices.find(voice=>/sa|ae|eg/i.test(voice.lang))||arabicVoices[0]||null;setAudioNotice(slow?"🐢 Playing slowly…":"🔊 Playing at normal speed…");utterance.onend=()=>window.setTimeout(()=>setAudioNotice(""),700);utterance.onerror=()=>setAudioNotice("🔇 No Arabic voice was found. Try another browser or ask an adult to read the card.");synth.speak(utterance)};
+  const audioRef=useRef<HTMLAudioElement|null>(null);
+  const speak=(rawText:string,slow=false)=>{
+    if(typeof window==="undefined")return;
+    const text=rawText.trim();
+    if(!text){setAudioNotice("🔇 There is no word to play yet.");return}
+
+    audioRef.current?.pause();
+    if("speechSynthesis" in window)window.speechSynthesis.cancel();
+
+    const fallbackToDeviceVoice=()=>{
+      if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window)){
+        setAudioNotice("🔇 Audio could not start. Check this device's sound and internet, then tap again.");
+        return;
+      }
+      const synth=window.speechSynthesis;
+      const utterance=new SpeechSynthesisUtterance(text);
+      utterance.lang="ar-SA";
+      utterance.rate=slow?.52:.88;
+      utterance.pitch=1.06;
+      utterance.volume=1;
+      const arabicVoices=synth.getVoices().filter(voice=>voice.lang.toLowerCase().startsWith("ar"));
+      const preferred=/salma|hoda|laila|layla|mariam|maryam|zeina|female|zira|sara/i;
+      utterance.voice=arabicVoices.find(voice=>preferred.test(voice.name))||arabicVoices.find(voice=>/sa|ae|eg/i.test(voice.lang))||arabicVoices[0]||null;
+      setAudioNotice(slow?"🐢 Playing slowly…":"🔊 Playing at normal speed…");
+      utterance.onend=()=>window.setTimeout(()=>setAudioNotice(""),700);
+      utterance.onerror=()=>setAudioNotice("🔇 Audio could not play. Check the device volume and tap again.");
+      synth.speak(utterance);
+    };
+
+    const source=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&q=${encodeURIComponent(text)}`;
+    const audio=new Audio(source);
+    audioRef.current=audio;
+    audio.preload="auto";
+    audio.playbackRate=slow?.7:1;
+    audio.preservesPitch=true;
+    audio.onplay=()=>setAudioNotice(slow?"🐢 Playing slowly…":"🔊 Playing at normal speed…");
+    audio.onended=()=>window.setTimeout(()=>setAudioNotice(""),700);
+    audio.onerror=fallbackToDeviceVoice;
+    audio.play().catch(fallbackToDeviceVoice);
+  };
   const clear=()=>{setAnswer(null);setChecked(false);setHint(false);window.scrollTo({top:0})};
   const openLesson=(id:number,step=0)=>{setLessonId(id);setSubIndex(step);setShowLesson(true);setActive("Learn");history.pushState({},"",`/learn/${id}/${step+1}`);clear()};
   const next=()=>{if(subIndex<4)openLesson(lessonId,subIndex+1);else{const lessonKey=`G${grade}-${difficulty}-L${lessonId}`;setProgress(p=>({...p,lessons:Array.from(new Set([...p.lessons,lessonKey]))}));if(lessonId<lessonBank.length)openLesson(lessonId+1,0);else{setShowLesson(false);history.pushState({},"","/learn");window.scrollTo({top:0})}}};
