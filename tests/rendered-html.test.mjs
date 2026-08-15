@@ -130,3 +130,12 @@ test("Arabic dictation uses real audio with distinct normal and slow speeds", as
   assert.ok(Object.keys(audioMap).length > 100, "audio library is unexpectedly incomplete");
   for (const path of Object.values(audioMap)) await access(new URL(`../public${path}`, import.meta.url));
 });
+
+test("lesson, Practice, and Play transitions reset to the page top after rendering", async () => {
+  const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(source, /requestAnimationFrame\(\(\)=>window\.requestAnimationFrame/, "top reset must wait for rendering");
+  assert.match(source, /const nextPractice=.*scrollPageTop\(\)/, "Practice questions must reset to top");
+  assert.match(source, /const advanceQuiz=.*scrollPageTop\(\)/, "quiz questions must reset to top");
+  assert.match(source, /const playChoice=.*scrollPageTop\(\)/, "game rounds must reset to top");
+  assert.match(source, /const openLesson=.*scrollPageTop\(\)/, "lesson steps must reset to top");
+});

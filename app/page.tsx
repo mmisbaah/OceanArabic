@@ -38,6 +38,11 @@ export default function Home() {
   const lesson=lessonBank.find(x=>x.id===lessonId)||grade1EasyLessons[0], sub=lesson.subLessons[subIndex];
   const [audioNotice,setAudioNotice]=useState("");
   const audioRef=useRef<HTMLAudioElement|null>(null);
+  const scrollPageTop=()=>window.requestAnimationFrame(()=>window.requestAnimationFrame(()=>{
+    window.scrollTo({top:0,left:0,behavior:"auto"});
+    document.documentElement.scrollTop=0;
+    document.body.scrollTop=0;
+  }));
   const speak=(rawText:string,slow=false)=>{
     if(typeof window==="undefined")return;
     const text=rawText.trim();
@@ -79,29 +84,29 @@ export default function Home() {
     audio.onerror=fallbackToDeviceVoice;
     audio.play().catch(fallbackToDeviceVoice);
   };
-  const clear=()=>{setAnswer(null);setChecked(false);setHint(false);window.scrollTo({top:0})};
-  const openLesson=(id:number,step=0)=>{setLessonId(id);setSubIndex(step);setShowLesson(true);setActive("Learn");history.pushState({},"",`/learn/${id}/${step+1}`);clear()};
+  const clear=()=>{setAnswer(null);setChecked(false);setHint(false);scrollPageTop()};
+  const openLesson=(id:number,step=0)=>{setLessonId(id);setSubIndex(step);setShowLesson(true);setActive("Learn");history.pushState({},"",`/learn/${id}/${step+1}`);clear();scrollPageTop()};
   const next=()=>{if(subIndex<4)openLesson(lessonId,subIndex+1);else{const lessonKey=`G${grade}-${difficulty}-L${lessonId}`;setProgress(p=>({...p,lessons:Array.from(new Set([...p.lessons,lessonKey]))}));if(lessonId<lessonBank.length)openLesson(lessonId+1,0);else{setShowLesson(false);history.pushState({},"","/learn");window.scrollTo({top:0})}}};
   const [practiceSkill,setPracticeSkill]=useState("Letters"),[practiceIndex,setPracticeIndex]=useState(0),[practiceChoice,setPracticeChoice]=useState(""),[practiceResult,setPracticeResult]=useState<"right"|"wrong"|"">(""),[practiceHint,setPracticeHint]=useState(false),[weakIds,setWeakIds]=useState<string[]>([]);
   const actionLock=useRef(false);
   const pool=practiceSkill==="Weak skills"?(weakIds.length?practiceItems.filter(x=>weakIds.includes(x.id)):practiceItems):practiceItems.filter(x=>x.skill===practiceSkill);const practice=pool[practiceIndex%pool.length];
   const choosePractice=(choice:string)=>{if(actionLock.current)return;actionLock.current=true;setPracticeChoice(choice);const ok=choice===practice.answer;setPracticeResult(ok?"right":"wrong");const nextWeak=ok?weakIds.filter(x=>x!==practice.id):Array.from(new Set([...weakIds,practice.id]));setWeakIds(nextWeak);safeWrite("oceanarabic-weak",nextWeak);window.setTimeout(()=>{actionLock.current=false},250)};
-  const nextPractice=()=>{setPracticeIndex((practiceIndex+1)%pool.length);setPracticeChoice("");setPracticeResult("");setPracticeHint(false)};
+  const nextPractice=()=>{setPracticeIndex((practiceIndex+1)%pool.length);setPracticeChoice("");setPracticeResult("");setPracticeHint(false);scrollPageTop()};
   const [quizLevel,setQuizLevel]=useState(1),[quizIndex,setQuizIndex]=useState(0),[quizChoice,setQuizChoice]=useState(""),[quizChecked,setQuizChecked]=useState(false),[quizHint,setQuizHint]=useState(false),[quizScore,setQuizScore]=useState(0),[quizDone,setQuizDone]=useState(false),[quizStarted,setQuizStarted]=useState(false),[quizNextReady,setQuizNextReady]=useState(false);
   const practiceAvailable=grade<=3;
   const quiz=grade===1?grade1PracticeFor(difficulty,quizLevel):grade===2?grade2PracticeFor(difficulty,quizLevel):grade3PracticeFor(difficulty,quizLevel), question=quiz[quizIndex];
   const practicePhase=grade===1?grade1PracticePhase(difficulty,quizLevel):grade===2?grade2PracticePhase(difficulty,quizLevel):grade3PracticePhase(difficulty,quizLevel);
   const practiceLevelLabel=(level:number)=>grade===1?(level<=7?"حُرُوف":level<=14?"كَلِمَات":"كُلُّ المَهَارَات"):grade===2?(level<=7?"جُمَل":level<=14?"قَوَاعِد":"إِتْقَان"):(level<=7?"تَرَاكِيب":level<=14?"قِرَاءَة":"إِتْقَان");
   const checkQuiz=()=>{if(!quizChoice||quizChecked||actionLock.current)return;actionLock.current=true;setQuizNextReady(false);setQuizChecked(true);if(quizChoice===question.answer)setQuizScore(score=>score+1);window.setTimeout(()=>{actionLock.current=false;setQuizNextReady(true)},900)};
-  const advanceQuiz=()=>{if(!quizNextReady||actionLock.current)return;actionLock.current=true;setQuizNextReady(false);if(quizIndex<4){setQuizIndex(index=>index+1);setQuizChoice("");setQuizChecked(false);setQuizHint(false);window.scrollTo({top:0})}else{const earned=quizScore/5<.6?1:quizScore/5<=.8?2:3,key=`G${grade}-${difficulty}-L${quizLevel}`;setProgress(p=>({...p,quizStars:{...p.quizStars,[key]:Math.max(p.quizStars[key]||0,earned)}}));setQuizDone(true);window.scrollTo({top:0})}window.setTimeout(()=>{actionLock.current=false},300)};
-  const openQuizLevel=(level:number)=>{setQuizStarted(true);setQuizLevel(level);setQuizIndex(0);setQuizChoice("");setQuizChecked(false);setQuizNextReady(false);setQuizHint(false);setQuizScore(0);setQuizDone(false);setTimeout(()=>document.querySelector(".quiz-player")?.scrollIntoView({behavior:"smooth",block:"start"}),20)};
+  const advanceQuiz=()=>{if(!quizNextReady||actionLock.current)return;actionLock.current=true;setQuizNextReady(false);if(quizIndex<4){setQuizIndex(index=>index+1);setQuizChoice("");setQuizChecked(false);setQuizHint(false)}else{const earned=quizScore/5<.6?1:quizScore/5<=.8?2:3,key=`G${grade}-${difficulty}-L${quizLevel}`;setProgress(p=>({...p,quizStars:{...p.quizStars,[key]:Math.max(p.quizStars[key]||0,earned)}}));setQuizDone(true)}scrollPageTop();window.setTimeout(()=>{actionLock.current=false},300)};
+  const openQuizLevel=(level:number)=>{setQuizStarted(true);setQuizLevel(level);setQuizIndex(0);setQuizChoice("");setQuizChecked(false);setQuizNextReady(false);setQuizHint(false);setQuizScore(0);setQuizDone(false);scrollPageTop()};
   const stars=quizScore/5<.6?1:quizScore/5<=.8?2:3;
   const [gameLevel,setGameLevel]=useState(1),[gameIndex,setGameIndex]=useState(0),[gameChoice,setGameChoice]=useState(""),[gameHint,setGameHint]=useState(false),[gameScore,setGameScore]=useState(0),[gameDone,setGameDone]=useState(false),[gameFeedback,setGameFeedback]=useState<"right"|"wrong"|"">(""),[gameStarted,setGameStarted]=useState(false),[timeLeft,setTimeLeft]=useState(0);
   const gameAvailable=grade<=3,rounds=grade===1?grade1GameFor(difficulty,gameLevel):grade===2?grade2GameFor(difficulty,gameLevel):grade3GameFor(difficulty,gameLevel),round=rounds[gameIndex];
   const currentGamePhase=grade===1?grade1GamePhase(difficulty,gameLevel):grade===2?grade2GamePhase(difficulty,gameLevel):grade3GamePhase(difficulty,gameLevel);
   const gameLevelLabel=(level:number)=>grade===1?(level<=7?"حُرُوف":level<=14?"كَلِمَات":"مُحَادَثَة"):grade===2?(level<=7?"جُمَل":level<=14?"قَوَاعِد":"إِتْقَان"):(level<=7?"تَرَاكِيب":level<=14?"تَحَدِّي":"إِتْقَان");
-  const openGameLevel=(level:number)=>{setGameStarted(true);setGameLevel(level);setGameIndex(0);setGameChoice("");setGameHint(false);setGameScore(0);setGameDone(false);setGameFeedback("");setTimeout(()=>document.querySelector(".game-player")?.scrollIntoView({behavior:"smooth",block:"start"}),20)};
-  const playChoice=(choice:string)=>{if(gameFeedback||actionLock.current)return;actionLock.current=true;setGameChoice(choice);const ok=choice===round.answer,nextScore=gameScore+(ok?1:0);setGameFeedback(ok?"right":"wrong");if(ok)setGameScore(nextScore);setTimeout(()=>{if(gameIndex<4){setGameIndex(v=>v+1);setGameChoice("");setGameHint(false);setGameFeedback("")}else{const earned=nextScore/5<.6?1:nextScore/5<=.8?2:3,key=`G${grade}-${difficulty}-L${gameLevel}`;setProgress(p=>({...p,gameStars:{...p.gameStars,[key]:Math.max(p.gameStars[key]||0,earned)}}));setGameDone(true)}actionLock.current=false},900)};
+  const openGameLevel=(level:number)=>{setGameStarted(true);setGameLevel(level);setGameIndex(0);setGameChoice("");setGameHint(false);setGameScore(0);setGameDone(false);setGameFeedback("");scrollPageTop()};
+  const playChoice=(choice:string)=>{if(gameFeedback||actionLock.current)return;actionLock.current=true;setGameChoice(choice);const ok=choice===round.answer,nextScore=gameScore+(ok?1:0);setGameFeedback(ok?"right":"wrong");if(ok)setGameScore(nextScore);setTimeout(()=>{if(gameIndex<4){setGameIndex(v=>v+1);setGameChoice("");setGameHint(false);setGameFeedback("")}else{const earned=nextScore/5<.6?1:nextScore/5<=.8?2:3,key=`G${grade}-${difficulty}-L${gameLevel}`;setProgress(p=>({...p,gameStars:{...p.gameStars,[key]:Math.max(p.gameStars[key]||0,earned)}}));setGameDone(true)}scrollPageTop();actionLock.current=false},900)};
   useEffect(()=>{if(!gameStarted||gameDone||gameFeedback||!round?.seconds){setTimeLeft(0);return}setTimeLeft(round.seconds);const timer=window.setInterval(()=>setTimeLeft(value=>{if(value<=1){window.clearInterval(timer);window.setTimeout(()=>playChoice("__timeout__"),0);return 0}return value-1}),1000);return()=>window.clearInterval(timer)},[gameStarted,gameDone,gameLevel,gameIndex,round?.seconds]);
   const gameStars=gameScore/5<.6?1:gameScore/5<=.8?2:3;
   const totalStars=Object.values(progress.quizStars).reduce((a,b)=>a+b,0)+Object.values(progress.gameStars).reduce((a,b)=>a+b,0);
