@@ -12,6 +12,7 @@ import { grade3PracticeFor, grade3PracticePhase } from "./grade3-practice";
 import { grade1GameFor, grade1GamePhase } from "./grade1-games";
 import { grade2GameFor, grade2GamePhase } from "./grade2-games";
 import { grade3GameFor, grade3GamePhase } from "./grade3-games";
+import audioMap from "./audio-map.json";
 
 const nav = [
   ["🏠", "Home"], ["📖", "Learn"], ["✏️", "Practice"], ["🎮", "Play"], ["🏆", "Rewards"], ["📈", "Progress"],
@@ -65,7 +66,8 @@ export default function Home() {
       synth.speak(utterance);
     };
 
-    const source=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&q=${encodeURIComponent(text)}`;
+    const bundledSource=audioMap[text as keyof typeof audioMap];
+    const source=bundledSource||`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&q=${encodeURIComponent(text)}`;
     const audio=new Audio(source);
     audioRef.current=audio;
     audio.preload="auto";
