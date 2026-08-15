@@ -146,6 +146,9 @@ test("upper deck keeps identity left, rewards centered, and account actions righ
   assert.match(page, /className="header-left"/, "missing left identity group");
   assert.match(page, /className="header-actions"/, "missing right action group");
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) auto minmax\(0,1fr\)/, "header must use three stable zones");
-  assert.match(css, /\.topbar>\.status-stack\{justify-self:center/, "rewards must be centered");
+  assert.match(css, /\.topbar\{[^}]*padding:12px 24px/, "desktop deck must reach both viewport edges consistently");
+  assert.match(css, /\.topbar>\.status-stack\{position:absolute;left:50%;transform:translateX\(-50%\)/, "rewards must be pinned to the viewport center");
+  assert.match(css, /\.header-left\{grid-column:1/, "identity must remain in the left zone");
+  assert.match(css, /\.header-actions\{grid-column:3/, "actions must remain in the right zone");
   assert.match(css, /\.header-actions\{[^}]*justify-self:end/, "actions must align right");
 });
