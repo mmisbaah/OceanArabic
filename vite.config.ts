@@ -12,8 +12,12 @@ const { d1, r2 } = hostingConfig;
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
 const localBindingConfig = {
+  name: "atollingo-oceanarabic",
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
+  workers_dev: true,
+  routes: [{ pattern: "arabic.atollingo.com", custom_domain: true as const }],
+  observability: { enabled: true },
   d1_databases: d1
     ? [
         {
