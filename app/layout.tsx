@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
     manifest: "/manifest.webmanifest",
     category: "education",
     keywords: ["Arabic learning", "Maldives", "primary education", "children", "OceanArabic", "Atollingo"],
-    icons: { icon: "/assets/nooru.png", shortcut: "/assets/nooru.png", apple: "/assets/nooru.png" },
+    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/assets/nooru.png" },
     openGraph: { type: "website", url: base, title, description, siteName: "OceanArabic", locale: "en_MV", images: [{ url: new URL("/og.png", base).toString(), width: 1200, height: 630, alt: "OceanArabic Arabic adventures with Nooru" }] },
     twitter: { card: "summary_large_image", title, description, images: [new URL("/og.png", base).toString()] },
   };
