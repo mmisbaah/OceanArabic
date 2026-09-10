@@ -1,3 +1,4 @@
+import AppHubConnector from '../atollingo/components/AppHubConnector';
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
@@ -32,5 +33,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body><AppHubConnector app="OceanArabic">{children}</AppHubConnector></body></html>;
 }
+
