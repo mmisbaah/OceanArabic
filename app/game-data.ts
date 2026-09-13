@@ -1,5 +1,5 @@
-export type GameKind="Picture Match"|"Sound Hunt"|"Letter Builder"|"Reef Rush";
-export type GameRound={id:string;kind:GameKind;prompt:string;visual:string;spoken?:string;pieces?:string[];options:string[];answer:string;hint:string;seconds?:number};
+export type GameKind="Picture Match"|"Sound Hunt"|"Letter Builder"|"Reef Rush"|"Text Quest";
+export type GameRound={id:string;kind:GameKind;prompt:string;visual:string;passage?:string;spoken?:string;pieces?:string[];options:string[];answer:string;hint:string;seconds?:number};
 const letters=["أ","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه","و","ي"];
 const words=[["أَسَد","🦁","أ"],["بَطَّة","🦆","ب"],["تُفَّاح","🍎","ت"],["ثَعْلَب","🦊","ث"],["جَمَل","🐪","ج"],["حُوت","🐋","ح"],["خَرُوف","🐑","خ"],["دُلْفِين","🐬","د"],["ذُرَة","🌽","ذ"],["رُمَّان","🔴","ر"],["زَهْرَة","🌺","ز"],["سَمَك","🐟","س"],["شَمْس","☀️","ش"],["صَدَفَة","🐚","ص"],["ضِفْدَع","🐸","ض"],["طَائِرَة","✈️","ط"],["ظَرْف","✉️","ظ"],["عَيْن","👁️","ع"],["غَيْمَة","☁️","غ"],["فِيل","🐘","ف"],["قَمَر","🌙","ق"],["كِتَاب","📘","ك"],["لَيْمُون","🍋","ل"],["مَوْز","🍌","م"],["نَجْمَة","⭐","ن"],["هِلال","🌙","ه"],["وَرْدَة","🌹","و"],["يَد","✋","ي"]];
 const greetings=[["أَهْلًا","👋"],["شُكْرًا","💛"],["اِسْمِي","🙂"],["مَعَ السَّلَامَة","🚶"]];

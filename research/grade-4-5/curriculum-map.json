@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "title": "OceanArabic Maldives Arabic Grades 4–5",
+  "checkedOn": "2026-09-12",
+  "status": "research-and-authoring-plan",
+  "learnerReleaseReady": false,
+  "officialOutcomeCodes": false,
+  "coverageLevel": "condensed strand/substrand clusters; individual-indicator audit still required",
+  "sources": [
+    {
+      "id": "NIE-KS2",
+      "publisher": "National Institute of Education, Maldives",
+      "repository": "Maldives National University Saruna",
+      "catalogueYear": 2021,
+      "pdfCopyrightYear": 2017,
+      "currentRevisionVerified": false,
+      "pdfPageCount": 50,
+      "url": "https://saruna.mnu.edu.mv/handle/123456789/16555",
+      "downloadUrl": "https://saruna.mnu.edu.mv/server/api/core/bitstreams/b3808235-270d-4b36-9328-eebd7078a5ef/content",
+      "localFile": "sources/NIE-Arabic-KS2-2021.pdf"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "version",
+      "note": "Catalogue year and PDF copyright year differ; latest active version unverified."
+    },
+    {
+      "id": "handwriting-progression",
+      "pdfPages": [
+        24,
+        32,
+        35
+      ],
+      "note": "Grade 4 Ruqah wording is stronger than Grade 5 guided introduction; teacher clarification required."
+    },
+    {
+      "id": "writing-cross-strand",
+      "pdfPages": [
+        33
+      ],
+      "note": "Listening/speaking indicators appear under Grade 5 writing purposes. Preserve category; assess writing with unambiguous writing indicators."
+    }
+  ],
+  "supportLevels": [
+    {
+      "id": "Easy",
+      "description": "Pictures, replayable audio, worked models and sentence frames."
+    },
+    {
+      "id": "Medium",
+      "description": "Fewer prompts; guided explanations and revisions."
+    },
+    {
+      "id": "Hard",
+      "description": "Independent comprehension, textual support, composition and revision."
+    }
+  ],
+  "supportPolicy": "All levels address the grade requirements. Level is scaffolding, not an official attainment grade.",
+  "evidenceTypes": [
+    "audio-comprehension",
+    "observed-oral-interaction",
+    "text-comprehension",
+    "draft-and-revision",
+    "observed-handwriting",
+    "group-presentation"
+  ],
+  "outcomes": [
+    {
+      "id": "OA-G4-listening-speaking.purposes",
+      "grade": 4,
+      "strand": "listening-speaking",
+      "category": "purposes",
+      "summary": "Participate in familiar MSA exchanges, follow directions, retrieve information and recount an event in order.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 17,
+      "printedPage": 16,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-listening-speaking.strategies",
+      "grade": 4,
+      "strand": "listening-speaking",
+      "category": "strategies",
+      "summary": "Listen for gist and detail, take turns, explain views and retell linked ideas.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 18,
+      "printedPage": 17,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-listening-speaking.language",
+      "grade": 4,
+      "strand": "listening-speaking",
+      "category": "language",
+      "summary": "Use questions, negation, tense, nominal/verbal sentences, adjectives, roots and familiar dual/plural patterns.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 19,
+      "printedPage": 18,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-reading-viewing.purposes",
+      "grade": 4,
+      "strand": "reading-viewing",
+      "category": "purposes",
+      "summary": "Read familiar literary and informational texts for main ideas and details, including expressive oral reading.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 20,
+      "printedPage": 19,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-reading-viewing.strategies",
+      "grade": 4,
+      "strand": "reading-viewing",
+      "category": "strategies",
+      "summary": "Predict from titles and images; use prior knowledge, context and phonics; reread and discuss vocabulary.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 21,
+      "printedPage": 20,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-reading-viewing.language",
+      "grade": 4,
+      "strand": "reading-viewing",
+      "category": "language",
+      "summary": "Interpret visuals and organization; use connectives, tense clues and a simple dictionary.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 22,
+      "printedPage": 21,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-writing.purposes",
+      "grade": 4,
+      "strand": "writing",
+      "category": "purposes",
+      "summary": "Write supported diary entries, recounts, descriptions, explanations and connected paragraphs.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 23,
+      "printedPage": 22,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-writing.strategies",
+      "grade": 4,
+      "strand": "writing",
+      "category": "strategies",
+      "summary": "Plan, draft, reread, correct and use peer feedback; develop handwriting and dictation.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 24,
+      "printedPage": 23,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G4-writing.language",
+      "grade": 4,
+      "strand": "writing",
+      "category": "language",
+      "summary": "Link sentences using agreement, number, tense, relatives, adverbs and possessive structures; apply familiar spelling, sun/moon lam and tanwin.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 25,
+      "printedPage": 24,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-listening-speaking.purposes",
+      "grade": 5,
+      "strand": "listening-speaking",
+      "category": "purposes",
+      "summary": "Adapt MSA exchanges to audience and context; clarify information, recount and respond.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 27,
+      "printedPage": 26,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-listening-speaking.strategies",
+      "grade": 5,
+      "strand": "listening-speaking",
+      "category": "strategies",
+      "summary": "Infer, summarize, take turns, give reasons and supporting evidence, adapt register and respond to feedback.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 28,
+      "printedPage": 27,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-listening-speaking.language",
+      "grade": 5,
+      "strand": "listening-speaking",
+      "category": "language",
+      "summary": "Use agreement, pronouns, conjunctions, prepositions, adverbs, relatives, demonstratives, roots and active participles.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 29,
+      "printedPage": 28,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-reading-viewing.purposes",
+      "grade": 5,
+      "strand": "reading-viewing",
+      "category": "purposes",
+      "summary": "Summarize literary/informational texts, compare ideas, support interpretations from text and take accurate notes.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 30,
+      "printedPage": 29,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-reading-viewing.strategies",
+      "grade": 5,
+      "strand": "reading-viewing",
+      "category": "strategies",
+      "summary": "Skim, revise predictions, self-correct, consult references, create mind maps and give an organized five-minute group presentation.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 31,
+      "printedPage": 30,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-reading-viewing.language",
+      "grade": 5,
+      "strand": "reading-viewing",
+      "category": "language",
+      "summary": "Recognize text purposes; use definiteness, comparisons, simple simile, sentence components, roots, punctuation and spelling.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 32,
+      "printedPage": 31,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-writing.purposes",
+      "grade": 5,
+      "strand": "writing",
+      "category": "purposes",
+      "summary": "Write focused directions, informational texts and ordered descriptions for purpose and audience; source includes cross-strand wording.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 33,
+      "printedPage": 32,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-writing.strategies",
+      "grade": 5,
+      "strand": "writing",
+      "category": "strategies",
+      "summary": "Plan for an audience, use models, brainstorm/research, organize and draft, consult a dictionary, peer-review and revise.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 34,
+      "printedPage": 33,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    },
+    {
+      "id": "OA-G5-writing.language",
+      "grade": 5,
+      "strand": "writing",
+      "category": "language",
+      "summary": "Expand complete simple/compound sentences; use tense/pronouns, adjectives, adverbs, haal and active/passive participles; develop paragraphing, hamza and handwriting.",
+      "sourceId": "NIE-KS2",
+      "pdfPage": 35,
+      "printedPage": 34,
+      "interpretation": "OceanArabic paraphrase/cluster; not official wording or code"
+    }
+  ],
+  "units": [
+    {
+      "id": "G4-U01",
+      "grade": 4,
+      "sequence": 1,
+      "title": "Our classroom conversations",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.purposes",
+        "OA-G4-listening-speaking.language",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-writing.purposes"
+      ],
+      "product": "Ask for clarification, follow directions and write a short exchange.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U02",
+      "grade": 4,
+      "sequence": 2,
+      "title": "A day on our island",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.purposes",
+        "OA-G4-listening-speaking.strategies",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-writing.purposes",
+        "OA-G4-writing.language"
+      ],
+      "product": "Sequence a listened recount and write a supported diary entry.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U03",
+      "grade": 4,
+      "sequence": 3,
+      "title": "People and places",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.language",
+        "OA-G4-reading-viewing.language",
+        "OA-G4-writing.purposes",
+        "OA-G4-writing.language"
+      ],
+      "product": "Describe a place using agreement, possession and visual information.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U04",
+      "grade": 4,
+      "sequence": 4,
+      "title": "Read, wonder and retell",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.strategies",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-reading-viewing.strategies",
+        "OA-G4-writing.purposes"
+      ],
+      "product": "Predict, identify the main idea and retell a story.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U05",
+      "grade": 4,
+      "sequence": 5,
+      "title": "Discover our sea",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.purposes",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-reading-viewing.language",
+        "OA-G4-writing.purposes"
+      ],
+      "product": "Read an information text/chart and write an explanation.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U06",
+      "grade": 4,
+      "sequence": 6,
+      "title": "Plan a class visit",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.purposes",
+        "OA-G4-listening-speaking.strategies",
+        "OA-G4-reading-viewing.strategies",
+        "OA-G4-writing.purposes",
+        "OA-G4-writing.strategies"
+      ],
+      "product": "Discuss roles, interpret instructions and write a visit plan.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U07",
+      "grade": 4,
+      "sequence": 7,
+      "title": "Words and patterns",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.language",
+        "OA-G4-reading-viewing.strategies",
+        "OA-G4-reading-viewing.language",
+        "OA-G4-writing.strategies",
+        "OA-G4-writing.language"
+      ],
+      "product": "Consult a dictionary and revise number, spelling and sentence patterns.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U08",
+      "grade": 4,
+      "sequence": 8,
+      "title": "Explain a good choice",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.strategies",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-reading-viewing.language",
+        "OA-G4-writing.purposes",
+        "OA-G4-writing.strategies"
+      ],
+      "product": "Give reasons and revise a persuasive paragraph.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G4-U09",
+      "grade": 4,
+      "sequence": 9,
+      "title": "Our class exhibition",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G4-listening-speaking.purposes",
+        "OA-G4-listening-speaking.strategies",
+        "OA-G4-reading-viewing.purposes",
+        "OA-G4-reading-viewing.strategies",
+        "OA-G4-writing.purposes",
+        "OA-G4-writing.strategies",
+        "OA-G4-writing.language"
+      ],
+      "product": "Present a recount and information poster; revise a portfolio.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U01",
+      "grade": 5,
+      "sequence": 1,
+      "title": "Speak for your audience",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.purposes",
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.strategies"
+      ],
+      "product": "Adapt a request/explanation to two audiences and revise an exchange.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U02",
+      "grade": 5,
+      "sequence": 2,
+      "title": "Stories with evidence",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-reading-viewing.strategies",
+        "OA-G5-reading-viewing.language",
+        "OA-G5-writing.purposes"
+      ],
+      "product": "Summarize a story, support an interpretation and compare descriptions.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U03",
+      "grade": 5,
+      "sequence": 3,
+      "title": "Island information desk",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.purposes",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-reading-viewing.strategies",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.strategies"
+      ],
+      "product": "Compare two information texts and write accurate notes.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U04",
+      "grade": 5,
+      "sequence": 4,
+      "title": "Better descriptions",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.language",
+        "OA-G5-reading-viewing.language",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.language"
+      ],
+      "product": "Expand descriptions with comparisons, adjectives, adverbs and participles.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U05",
+      "grade": 5,
+      "sequence": 5,
+      "title": "How we do it",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.purposes",
+        "OA-G5-listening-speaking.language",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.language"
+      ],
+      "product": "Explain a process and write ordered instructions.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U06",
+      "grade": 5,
+      "sequence": 6,
+      "title": "Discuss and persuade",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.purposes",
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-reading-viewing.language",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.strategies"
+      ],
+      "product": "Participate in a reasoned discussion and revise a persuasive text.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U07",
+      "grade": 5,
+      "sequence": 7,
+      "title": "Research and report",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-listening-speaking.language",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-reading-viewing.strategies",
+        "OA-G5-writing.strategies"
+      ],
+      "product": "Use references, organize notes and write an information report.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U08",
+      "grade": 5,
+      "sequence": 8,
+      "title": "Writers' workshop",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-reading-viewing.language",
+        "OA-G5-writing.strategies",
+        "OA-G5-writing.language"
+      ],
+      "product": "Peer-review and revise grammar, paragraphing, spelling and handwriting.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    },
+    {
+      "id": "G5-U09",
+      "grade": 5,
+      "sequence": 9,
+      "title": "Our Arabic showcase",
+      "status": "proposed-not-authored",
+      "officialUnit": false,
+      "outcomeIds": [
+        "OA-G5-listening-speaking.purposes",
+        "OA-G5-listening-speaking.strategies",
+        "OA-G5-reading-viewing.purposes",
+        "OA-G5-reading-viewing.strategies",
+        "OA-G5-writing.purposes",
+        "OA-G5-writing.strategies",
+        "OA-G5-writing.language"
+      ],
+      "product": "Deliver a five-minute group presentation and revised portfolio piece.",
+      "sessions": [
+        "Encounter a text/audio model",
+        "Investigate and practise",
+        "Communicate and revise"
+      ],
+      "supportLevels": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "assessmentRequiresHumanReview": true
+    }
+  ]
+}
