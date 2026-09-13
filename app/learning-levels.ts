@@ -11,3 +11,10 @@ export const learningLevels = [
 export function selectedLearningLevel(grade: number, difficulty: string) {
   return learningLevels.find(level => level.grade === grade && level.difficulty === difficulty);
 }
+
+// Same placement rule as OceanLearn's stageIndex, expressed as a one-based level.
+export function levelForProfile(grade: number, difficulty: string) {
+  const base=Math.min(5,Math.max(1,grade));
+  const index=difficulty==='Easy'?base-1:difficulty==='Hard'?Math.min(6,base+1):base;
+  return learningLevels[index];
+}

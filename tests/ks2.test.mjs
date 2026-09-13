@@ -12,12 +12,19 @@ async function load(name){
   const js=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
   const path=join(out,`${name}.mjs`);await writeFile(path,js);return import(pathToFileURL(path).href);
 }
-const {learningLevels}=await load('learning-levels');
+const {learningLevels,levelForProfile}=await load('learning-levels');
 const {ks2UnitsFor,ks2LessonsFor,ks2PracticeFor,ks2GameFor}=await load('ks2-content');
 test('seven stages follow the Atollingo grade progression',()=>{
   assert.deepEqual(learningLevels.map(x=>x.id),[1,2,3,4,5,6,7]);
   assert.deepEqual(learningLevels.map(x=>x.grade),[1,1,2,3,4,5,5]);
   assert.equal(learningLevels[6].difficulty,'Hard');
+});
+test('all fifteen grade/challenge selections match OceanLearn placement',()=>{
+  const expected=[[1,2,3],[2,3,4],[3,4,5],[4,5,6],[5,6,7]];
+  for(let grade=1;grade<=5;grade++)for(const [index,challenge] of ['Easy','Medium','Hard'].entries()){
+    assert.equal(levelForProfile(grade,challenge).id,expected[grade-1][index]);
+  }
+  assert.deepEqual(levelForProfile(4,'Hard'),levelForProfile(5,'Medium'));
 });
 test('every new route supplies its own complete text, practice and game banks',()=>{
   const passages=new Set();
