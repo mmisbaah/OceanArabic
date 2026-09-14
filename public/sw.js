@@ -1,4 +1,4 @@
-const CACHE = "oceanarabic-shell-v2";
+const CACHE = "oceanarabic-shell-v3";
 const SHELL = ["/", "/manifest.webmanifest", "/assets/nooru.png", "/og.png"];
 
 self.addEventListener("install", event => {

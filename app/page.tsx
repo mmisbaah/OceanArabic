@@ -1,5 +1,5 @@
 ﻿"use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { curriculum } from "./curriculum";
 import { grade1EasyLessons } from "./grade1-easy";
 import { grade1LessonsFor } from "./grade1-lessons";
@@ -36,6 +36,17 @@ export default function Home() {
   const [grade, setGrade] = useState(1);
   const [difficulty, setDifficulty] = useState("Medium");
   const [profileGrade,setProfileGrade]=useState(1),[profileChallenge,setProfileChallenge]=useState("Medium");
+  const placementScroll=useRef<{x:number;y:number}|null>(null);
+  useLayoutEffect(()=>{
+    const position=placementScroll.current;
+    if(!position)return;
+    placementScroll.current=null;
+    const restore=()=>window.scrollTo({left:position.x,top:position.y,behavior:"instant"});
+    restore();
+    const frame=window.requestAnimationFrame(restore);
+    return()=>window.cancelAnimationFrame(frame);
+  },[profileGrade,profileChallenge]);
+
   const plan = curriculum.find(item => item.grade === grade && item.level === difficulty)!;
   const currentLevel=selectedLearningLevel(grade,difficulty);
   const activityCount=grade>=4?9:20;
@@ -125,7 +136,7 @@ export default function Home() {
   const avatars=Array.from({length:18},(_,i)=>`/assets/avatars/avatar-${String(i+1).padStart(2,"0")}.png`);
   const imageFallback=(fallback:string)=>(event:React.SyntheticEvent<HTMLImageElement>)=>{const image=event.currentTarget;if(image.dataset.fallbackApplied)return;image.dataset.fallbackApplied="true";image.src=fallback};
   const resetActivityViews=(scroll=true)=>{setShowLesson(false);setLessonId(1);setSubIndex(0);clear(scroll);setQuizStarted(false);setQuizLevel(1);setQuizIndex(0);setQuizChoice("");setQuizChecked(false);setQuizNextReady(false);setQuizHint(false);setQuizScore(0);setQuizDone(false);setGameStarted(false);setGameLevel(1);setGameIndex(0);setGameChoice("");setGameHint(false);setGameScore(0);setGameDone(false);setGameFeedback("");setTimeLeft(0)};
-  const choosePlacement=(chosenGrade:number,challenge:string)=>{if(actionLock.current)return;const selected=levelForProfile(chosenGrade,challenge);resetActivityViews(false);audioRef.current?.pause();if("speechSynthesis" in window)window.speechSynthesis.cancel();setAudioNotice("");setProfileGrade(chosenGrade);setProfileChallenge(challenge);setGrade(selected.grade);setDifficulty(selected.difficulty);if(active==="Learn")history.replaceState({},"","/learn");if(learner){const updated={...learner,grade:chosenGrade,difficulty:challenge};setLearner(updated);safeWrite("oceanarabic-learner",updated)}};
+  const choosePlacement=(chosenGrade:number,challenge:string)=>{if(actionLock.current||(chosenGrade===profileGrade&&challenge===profileChallenge))return;placementScroll.current={x:window.scrollX,y:window.scrollY};const selected=levelForProfile(chosenGrade,challenge);if(learner)resetActivityViews(false);audioRef.current?.pause();if("speechSynthesis" in window)window.speechSynthesis.cancel();setAudioNotice("");setProfileGrade(chosenGrade);setProfileChallenge(challenge);setGrade(selected.grade);setDifficulty(selected.difficulty);if(learner&&active==="Learn")history.replaceState({},"","/learn");if(learner){const updated={...learner,grade:chosenGrade,difficulty:challenge};setLearner(updated);safeWrite("oceanarabic-learner",updated)}};
   const levelPicker=<div className="placement-controls"><fieldset><legend>Choose your grade</legend><div className="placement-buttons">{[1,2,3,4,5].map(g=><button type="button" key={g} aria-pressed={profileGrade===g} onClick={()=>choosePlacement(g,profileChallenge)}>Grade {g}</button>)}</div></fieldset><fieldset><legend>Choose your challenge</legend><div className="placement-buttons">{["Easy","Medium","Hard"].map(challenge=><button type="button" key={challenge} aria-pressed={profileChallenge===challenge} onClick={()=>choosePlacement(profileGrade,challenge)}>{challenge}</button>)}</div></fieldset><p className="placement-summary" role="status">Level {currentLevel?.id} · {currentLevel?.title}</p></div>;
   const enterApp=()=>{if(!entryName.trim()||actionLock.current)return;actionLock.current=true;resetActivityViews();setActive("Home");history.replaceState({},"","/");window.scrollTo({top:0});const data={name:entryName.trim(),avatar:entryAvatar,grade:profileGrade,difficulty:profileChallenge};safeWrite("oceanarabic-learner",data);setLearner(data);window.setTimeout(()=>{actionLock.current=false},300)};
   const logout=()=>{if(actionLock.current)return;actionLock.current=true;resetActivityViews();setActive("Home");history.replaceState({},"","/");window.scrollTo({top:0});safeRemove("oceanarabic-learner");setLearner(null);setEntryName("");window.setTimeout(()=>{actionLock.current=false},300)};
